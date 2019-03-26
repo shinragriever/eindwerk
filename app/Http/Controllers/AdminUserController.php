@@ -47,14 +47,9 @@ class AdminUserController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $this->validateRequest($request);
         
-         User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'role_id' => $data['role_id'],
-            'password' => Hash::make($data['password']),
-        ]);
+        
+         User::create($this->validateRequest());
 
 
         return redirect('users');
@@ -77,9 +72,10 @@ class AdminUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        $roles = Role::all();
+        return view('admin.users.edit', compact('user','roles'));
     }
 
     /**
@@ -89,9 +85,13 @@ class AdminUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(User $user)
     {
-        //
+        
+        $user->update($this->validateRequest());
+
+
+        return redirect('users');
     }
 
     /**
@@ -109,7 +109,7 @@ class AdminUserController extends Controller
             'name' => 'required|min:2',
             'email' => 'required|email',
             'role_id' => 'required',
-            'password' => 'string|confirmed',
+            'password' => 'string|confirmed|alpha_dash',
         ]);
         
     }

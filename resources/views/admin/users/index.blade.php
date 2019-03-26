@@ -12,6 +12,8 @@
 					<th scope="col">name</th>
 					<th scope="col">role</th>
 					<th scope="col">email</th>
+					<th scope="col">edit</th>
+					<th scope>delete</th>
 
 
 				</tr>
@@ -23,6 +25,12 @@
 				<td>{{$user->name}}</td>
 				<td>{{$user->role ? $user->role->name : 'User without role'}}</td>
 				<td>{{$user->email}}</td>
+				<td><a href="{{route('users.edit',$user->id)}}" class="btn btn-outline-primary btn-sm">Edit</a></td>
+				<td><form action="{{route('users.destroy', $user->id)}}" method="POST">
+             @method('DELETE')
+             @csrf
+             <button type="submit" class="btn btn-outline-danger btn-sm">Delete User</a>
+        </form></td>
 				</tr>
 				@endforeach
 			</tbody>

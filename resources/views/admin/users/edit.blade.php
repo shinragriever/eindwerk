@@ -3,7 +3,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
-            <h1>edit User</h1>
+            <h1>Edit User: {{$user->name}}</h1>
 
             <form method="POST" action="{{Route('users.update', ['user' => $user])}}">
                 @method('PATCH')
@@ -25,16 +25,22 @@
                         </select>
                     </div>
                     @csrf
+                    <button class="btn btn-primary" type="submit">SUBMIT</button>
+        </form>
                 </div>
             </div>
 
 
 
-
-            <button class="btn btn-primary" type="submit">SUBMIT</button>
-
-        </form>
     </div>
+            
+        <form action="{{route('users.destroy', $user->id)}}" method="POST">
+             @method('DELETE')
+             @csrf
+             <button type="submit" class="btn btn-danger">Delete User: {{$user->name}}</button>
+        </form>
+        </div>
+    
 </div>
 
 @endsection

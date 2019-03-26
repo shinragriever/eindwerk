@@ -404,6 +404,10 @@ $(document).ready( function () {
       "info": false,  
       "paging": true,
       "pageLength": 15,
+      "columnDefs": [{ 
+      "targets": [-1,-2], 
+      "orderable": false
+      }],
       });
 } );
 </script>

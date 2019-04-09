@@ -13,7 +13,7 @@
 					<th scope="col">role</th>
 					<th scope="col">email</th>
 					<th scope="col">edit</th>
-					<th scope>delete</th>
+					<th scope="col">delete</th>
 
 
 				</tr>

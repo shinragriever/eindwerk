@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-class CategoryController extends Controller
+use App\Category;
+class CategoriesController extends Controller
 {
+    public function __construct(){
+
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +16,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::all();
+        return view('admin.categories.index', compact('categories'));
     }
 
     /**
@@ -23,7 +27,9 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        $category = New Category();
+        return view('admin.categories.create', compact('category'));
+
     }
 
     /**
@@ -34,7 +40,10 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Category::create($this->validateRequest());
+
+
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -54,9 +63,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Category $category)
     {
-        //
+        return view('admin.categories.edit', compact('category'));
     }
 
     /**
@@ -66,9 +75,12 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Category $category)
     {
-        //
+        $category->update($this->validateRequest());
+
+
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -77,8 +89,18 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect()->route('categories.index');
+
+
     }
+        private function validateRequest(){
+        return request()->validate([
+            'name' => 'required|min:2|unique:categories,name',
+        ]);
+        
+    }
+
 }

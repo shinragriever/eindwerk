@@ -22,9 +22,11 @@ Route::get('/shop', function(){
 Auth::routes();
 
  Route::get('/admin','AdminController@index')->name('admin');
- Route::resource('users','AdminUserController');
-Route::group(['middleware'=>'admin'],function(){
-   
+ 
+Route::group(['middleware'=>'auth', 'prefix' => 'admin'],function(){
+   Route::resource('users','AdminUserController');
+   Route::resource('categories','CategoriesController');
+
     
 });
 

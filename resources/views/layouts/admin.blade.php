@@ -17,7 +17,7 @@
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
   <!-- Custom styles for this template-->
   <link href="{{asset('/css/sb-admin-2.min.css')}}" rel="stylesheet">
-  <link href="{{asset('/css/admin.css')}}" rel="stylesheet">
+  {{-- <link href="{{asset('/css/admin.css')}}" rel="stylesheet"> --}}
   
 </head>
 
@@ -41,7 +41,7 @@
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="{{route('admin')}}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
@@ -79,7 +79,7 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Custom Utilities:</h6>
-            <a class="collapse-item" href="utilities-color.html">Colors</a>
+            <a class="collapse-item" href="/admin/categories">Colors</a>
             <a class="collapse-item" href="utilities-border.html">Borders</a>
             <a class="collapse-item" href="utilities-animation.html">Animations</a>
             <a class="collapse-item" href="utilities-other.html">Other</a>
@@ -135,11 +135,20 @@
             <a class="collapse-item" href="{{route('users.create')}}">Create User</a>
             <a class="collapse-item" href="{{route('users.index')}}">All Users</a>
             
+          <div class="collapse-divider"></div>
+            <h6 class="collapse-header">Categories:</h6>
+            <a class="collapse-item" href="{{route('categories.create')}}">Create Category</a>
+            <a class="collapse-item" href="{{route('categories.index')}}">All Categories</a>
+
             <div class="collapse-divider"></div>
             <h6 class="collapse-header">Products:</h6>
             <a class="collapse-item" href="">Create Product</a>
             <a class="collapse-item" href="">All Products</a>
           </div>
+
+
+          
+
         </div>
       </li>
 
@@ -392,21 +401,20 @@
   <!-- Custom scripts for all pages-->
   <script src="{{asset('/js/sb-admin-2.min.js')}}"></script>
 
-  <!-- Page level plugins -->
-  <script src="{{asset('/vendor/chart.js/Chart.min.js')}}"></script>
+
  
  <script>
 $(document).ready( function () {
     $('#datatable').DataTable(
     {
-      iDisplayLength: -1,
+      'iDisplayLength': -1,
       "lengthChange": false,  
       "info": false,  
       "paging": true,
       "pageLength": 15,
       "columnDefs": [{ 
       "targets": [-1,-2], 
-      "orderable": false
+      "orderable": false,
       }],
       });
 } );

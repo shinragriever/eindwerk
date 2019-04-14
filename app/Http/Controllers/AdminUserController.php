@@ -52,7 +52,7 @@ class AdminUserController extends Controller
          User::create($this->validateRequest());
 
 
-        return redirect('users');
+         return redirect()->route('users.index');
     }
 
     /**
@@ -85,13 +85,19 @@ class AdminUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(User $user)
+    public function update(request $request,User $user)
     {
+        $this->validate($request, array(
+            'name' => 'required|min:2',
+            'email' => "required|email|unique:users,email,$user->id",
+            'role_id' => 'required',
+            'password' => 'string|confirmed|alpha_dash',
+        ));
         
-        $user->update($this->validateRequest());
+        $user->update($request->all());
 
 
-        return redirect('users');
+        return redirect()->route('users.index');
     }
 
     /**
@@ -108,7 +114,7 @@ class AdminUserController extends Controller
     private function validateRequest(){
         return request()->validate([
             'name' => 'required|min:2',
-            'email' => 'required|email',
+            'email' => "required|email|unique:users,email",
             'role_id' => 'required',
             'password' => 'string|confirmed|alpha_dash',
         ]);

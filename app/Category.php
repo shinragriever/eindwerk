@@ -9,6 +9,8 @@ class Category extends Model
 	protected $primaryKey = 'id';
 	protected $table = 'categories';
     protected $fillable = [ 'name' ];
-
+	public function subcategories(){
+        return $this->hasMany('App\Subcategory');
+    }
 
 }

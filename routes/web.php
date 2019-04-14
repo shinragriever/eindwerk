@@ -25,7 +25,8 @@ Auth::routes();
  
 Route::group(['middleware'=>'auth', 'prefix' => 'admin'],function(){
    Route::resource('users','AdminUserController');
-   Route::resource('categories','CategoriesController');
+   Route::resource('categories','CategoryController');
+   Route::resource('products','ProductController');
 
     
 });

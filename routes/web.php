@@ -31,4 +31,11 @@ Route::group(['middleware'=>'auth', 'prefix' => 'admin'],function(){
     
 });
 
+Route::get('test', function(){
+    
+    return view ('test');
+});
 
+
+Route::view('dropzone','dropzone');
+Route::get('test/{id}','ProductImageController');

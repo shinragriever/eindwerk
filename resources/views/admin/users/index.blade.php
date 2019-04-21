@@ -2,9 +2,8 @@
 
 @section('content')
 
- <div class="container-fluid">
-	<div class="row">
-		<div class="col-12">
+ 
+	
 			<table class="table" id="datatable">
 				<thead>
 				<tr>
@@ -35,12 +34,11 @@
 				@endforeach
 			</tbody>
 			</table>
-		</div>
-	</div>
+	
 
 	
 
- </div>
+
 
 
 

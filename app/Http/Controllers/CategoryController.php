@@ -30,7 +30,7 @@ class categoryController extends Controller
         Category::create($this->validateRequest());
 
 
-        return redirect()->route('categories.index');
+        return redirect()->route('categories.index')->with('success','Category has been created!');
     }
 
   
@@ -48,17 +48,20 @@ class categoryController extends Controller
  
     public function update(Request $request, Category $category)
     {
-        $category->update($this->validateRequest());
+        $this->validate($request, array(
+            'name' => "required|min:2|unique:categories,name,$category->id",
+        ));
+        $category->update($request->all());
 
 
-        return redirect()->route('categories.index');
+        return redirect()->route('categories.index')->with('success','Category has been updated!');
     }
 
  
     public function destroy(Category $category)
     {
         $category->delete();
-        return redirect()->route('categories.index');
+        return redirect()->route('categories.index')->with('error','Category has been deleted!');
 
 
     }

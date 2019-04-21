@@ -4,39 +4,104 @@ use Illuminate\Database\Seeder;
 
 class ProductsTableSeeder extends Seeder
 {
+
     /**
-     * Run the database seeds.
+     * Auto generated seed file
      *
      * @return void
      */
     public function run()
     {
-        DB::table('products')->insert(['name' => 'Mini skirt black edition',
-         'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-        'price' => 35, 'category_id'=> 1]);
+        
 
-        DB::table('products')->insert(['name' => 'T-shirt blue edition',
-             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-            'price' => 64, 'category_id'=> 2]);
+        \DB::table('products')->delete();
+        
+        \DB::table('products')->insert(array (
+            0 => 
+            array (
+                'id' => 1,
+                'name' => 'Belgrado - Siglo XXI',
+                'description' => 'The LP comes in a thick black and white pocket sleeve.
+Also includes a thick, both sided, 30x30 cm insert, an extra lyric sheet and a 40x55 cm poster.
 
-        DB::table('products')->insert(['name' => 'Sleeveless Colorblock Scuba',
-             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-            'price' => 13, 'category_id'=> 3]);
+Pressing plant uncredited, identified with the matrix.',
+                'price' => 15,
+                'category_id' => 1,
+                'created_at' => '2019-04-20 21:24:05',
+                'updated_at' => '2019-04-20 21:24:05',
+            ),
+            1 => 
+            array (
+                'id' => 2,
+                'name' => 'Antiguo Régimen ‎– Política De Tierra Quemada',
+                'description' => 'Label: Discos Humeantes ‎– DHR-038, Flexidiscos ‎– FX08, Burka For Everybody ‎– BFE 020
+Format: Vinyl, LP, Album 
+Country: Spain
+Released: 2014
+Genre: Electronic, Rock, Pop
+Style: Darkwave, New Wave
 
+Tracklist
+A1	Política De Tierra Quemada	
+A2	Antiguo Régimen	
+A3	Los Ojos Del Otro	
+A4	Piezas Sobrantes	
+A5	Desorden Mundial	
+B1	Plomo Fundido En Sangre	
+B2	Frialdad Quirúrgica	
+B3	Oculto	
+B4	Observaciones',
+                'price' => 20,
+                'category_id' => 1,
+                'created_at' => '2019-04-20 21:28:08',
+                'updated_at' => '2019-04-20 21:28:08',
+            ),
+            2 => 
+            array (
+                'id' => 3,
+                'name' => 'Iceage ‎– New Brigade',
+                'description' => 'Label: Escho ‎– ESC19
+Format: Vinyl, LP, 45 RPM, Limited Edition 
+Country: Denmark
+Released: 07 Jan 2011
+Genre: Rock, Pop
+Style: Punk
+Tracklist
+A1	Intro	
+A2	White Rune	
+A3	New Brigade	
+A4	Remember	
+A5	Teeth Crush	
+A6	Total Drench	
+A7	Broken Bone	
+B1	Collapse	
+B2	Eyes	
+B3	Count Me In
+Written-By – Sexdrome
+B4	Never Return	
+B5	Youre Blessed',
+                'price' => 25,
+                'category_id' => 1,
+                'created_at' => '2019-04-20 21:43:01',
+                'updated_at' => '2019-04-20 21:43:01',
+            ),
+            3 => 
+            array (
+                'id' => 4,
+                'name' => 'Lana Del Rey ‎– Ultraviolence',
+                'description' => 'Label: Polydor ‎– 3787448, Interscope Records ‎– 3787448
+Format: 2 × Vinyl, LP, Album, 180 Gram 
+Country: UK
+Released: 13 Jun 2014
+Genre: Rock, Pop, Folk, World, & Country
+Style: Ballad',
+                'price' => 30,
+                'category_id' => 1,
+                'created_at' => '2019-04-20 21:44:24',
+                'updated_at' => '2019-04-20 21:44:24',
+            ),
+        ));
+        
+        
     }
 }

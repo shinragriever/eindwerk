@@ -11,10 +11,10 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('categories')->insert(['name'=>'Women']);
-        DB::table('categories')->insert(['name'=>'Men']);
-        DB::table('categories')->insert(['name'=>'Kids']);
-        DB::table('categories')->insert(['name'=>'Accesories ']);
+        DB::table('categories')->insert(['name'=>'Vinyl']);
+        DB::table('categories')->insert(['name'=>'Cassette']);
+        DB::table('categories')->insert(['name'=>'CD']);
+        DB::table('categories')->insert(['name'=>'DVD']);
         
     }
 }

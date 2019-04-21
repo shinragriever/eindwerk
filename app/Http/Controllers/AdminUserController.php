@@ -52,7 +52,7 @@ class AdminUserController extends Controller
          User::create($this->validateRequest());
 
 
-         return redirect()->route('users.index');
+         return redirect()->route('users.index')->with('success','User has been created!');
     }
 
     /**
@@ -97,19 +97,13 @@ class AdminUserController extends Controller
         $user->update($request->all());
 
 
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->with('success','User has been updated!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(user $user)
     {
         $user->delete();
-        return redirect('users');
+        return redirect()->route('users.index')->with('error','User has been deleted!');
     }
     private function validateRequest(){
         return request()->validate([

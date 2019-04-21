@@ -1,8 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-12">
+
             <h1>Create category</h1>
 
             <form method="POST" action="{{Route('categories.store')}}">
@@ -14,8 +12,7 @@
                 </div>
                 
                 @csrf
-            </div>
-        </div>
+         
 
 
 
@@ -25,7 +22,5 @@
     </form>
 
 
-</div>
-</div>
-</div>
+
 @endsection

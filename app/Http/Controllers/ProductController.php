@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Product;
 use App\Category;
 use App\ProductImage;
+use App\Genre;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Image;
@@ -15,9 +16,9 @@ class ProductController extends Controller
         
         
         
-        $products = Product::with('ProductImages')->get();
+        $products = Product::with('ProductImages','Genres')->get();
         
-        return view ('admin.products.index',compact('products','categories','images'));
+        return view ('admin.products.index',compact('products'));
     }
 
     /**
@@ -29,7 +30,8 @@ class ProductController extends Controller
     {
         $product = New Product();
         $categories = Category::all();
-        return view('admin.products.create', compact('product','categories'));
+        $genres = Genre::all();
+        return view('admin.products.create', compact('product','categories','genres'));
     }
 
     public function store(Request $request)
@@ -69,7 +71,8 @@ class ProductController extends Controller
             $order++;
             $featured=0;
         }
-        
+        $product = Product::findOrFail($id);
+        $product->genres()->attach($request->genres);
 
 
         return redirect()->route('products.index')->with('success','Product has been created!');
@@ -100,8 +103,8 @@ class ProductController extends Controller
         
         
         $categories = Category::all();
-        
-        return view('admin.products.edit', compact('product','categories','files'));
+        $genres = Genre::all();
+        return view('admin.products.edit', compact('product','categories','files','genres'));
     }
 
 
@@ -118,6 +121,12 @@ class ProductController extends Controller
        
         ));
         $product->update($request->all());
+        if(isset($request->genres)){
+            $product->genres()->sync($request->genres);
+        }
+        else {
+            $product->genres()->sync(array());
+        }
         
 
         return redirect()->route('products.index')->with('succes','Product has been updated!');
@@ -125,7 +134,8 @@ class ProductController extends Controller
 
 
     public function destroy(Product $product)
-    {
+    {   
+        $product->genres()->detach();
         $product->delete();
         return redirect()->route('products.index')->with('error','Product has been deleted!');
     }

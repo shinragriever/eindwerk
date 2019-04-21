@@ -34,6 +34,7 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
+<link href="{{ asset('css/front.css')}}" rel="stylesheet">
 </head>
 <body class="animsition">
 
@@ -51,26 +52,57 @@
 				</div>
 
 				<span class="topbar-child1">
-					Free shipping for standard order over $100
+					
 				</span>
 
 				<div class="topbar-child2">
 					<span class="topbar-email">
-						fashe@example.com
+							{{-- {{ Auth::user()->email }} --}}
+							<ul class="navbar-nav ml-auto">
+									<!-- Authentication Links -->
+									@guest
+										<li class="nav-item">
+											<a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+										</li>
+										@if (Route::has('register'))
+											<li class="nav-item">
+												<a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+											</li>
+										@endif
+									@else
+										<li class="nav-item dropdown">
+											<a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+												{{ Auth::user()->name }} <span class="caret"></span>
+											</a>
+				  
+											<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+													@if(Auth::user()->role->id == 1)
+													<a class="dropdown-item" href="{{ route('admin') }}">
+														Admin
+												  </a>
+												  @endif
+												<a class="dropdown-item" href="{{ route('logout') }}"
+												  onclick="event.preventDefault();
+																document.getElementById('logout-form').submit();">
+													{{ __('Logout') }}
+												</a>
+				  
+												<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+													@csrf
+												</form>
+											</div>
+										</li>
+									@endguest
+								</ul>
 					</span>
 
-					<div class="topbar-language rs1-select2">
-						<select class="selection-1" name="time">
-							<option>USD</option>
-							<option>EUR</option>
-						</select>
-					</div>
+					
 				</div>
 			</div>
 
 			<div class="wrap_header">
 				<!-- Logo -->
-				<a href="index.html" class="logo">
+				<a href="{{route('home')}}" class="logo">
 					<img src="images/icons/logo.png" alt="IMG-LOGO">
 				</a>
 
@@ -381,7 +413,7 @@
 	</header>
 
 	<!-- Slide1 -->
-	<section class="slide1">
+	{{-- <section class="slide1">
 		<div class="wrap-slick1">
 			<div class="slick1">
 				<div class="item-slick1 item1-slick1" style="background-image: url(images/master-slide-02.jpg);">
@@ -443,77 +475,36 @@
 
 			</div>
 		</div>
-	</section>
-
+	</section> --}}
+		
 	<!-- Banner -->
 	<section class="banner bgwhite p-t-40 p-b-40">
 		<div class="container">
+				<div class="sec-title p-b-60">
+						<h3 class="m-text5 t-center">
+							Latest Products
+						</h3>
+					</div>
 			<div class="row">
+					@foreach($products as $product)
+					
 				<div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
 					<!-- block1 -->
+					 
 					<div class="block1 hov-img-zoom pos-relative m-b-30">
-						<img src="images/banner-02.jpg" alt="IMG-BENNER">
-
-						<div class="block1-wrapbtn w-size2">
+						<img src="{{$product->productImages->first()->file}}" alt="IMG-BENNER">
+						
+						<div class="block1-wrapbtn product-display-text">
 							<!-- Button -->
-							<a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
-								Dresses
-							</a>
-						</div>
-					</div>
-
-					<!-- block1 -->
-					<div class="block1 hov-img-zoom pos-relative m-b-30">
-						<img src="images/banner-05.jpg" alt="IMG-BENNER">
-
-						<div class="block1-wrapbtn w-size2">
-							<!-- Button -->
-							<a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
-								Sunglasses
+							<a href="#" class="d-inline-flex  m-text2 bg3 hov1 trans-0-4 p-2">
+								{{$product->name}}
 							</a>
 						</div>
 					</div>
 				</div>
-
+						@endforeach
+{{-- 
 				<div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
-					<!-- block1 -->
-					<div class="block1 hov-img-zoom pos-relative m-b-30">
-						<img src="images/banner-03.jpg" alt="IMG-BENNER">
-
-						<div class="block1-wrapbtn w-size2">
-							<!-- Button -->
-							<a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
-								Watches
-							</a>
-						</div>
-					</div>
-
-					<!-- block1 -->
-					<div class="block1 hov-img-zoom pos-relative m-b-30">
-						<img src="images/banner-07.jpg" alt="IMG-BENNER">
-
-						<div class="block1-wrapbtn w-size2">
-							<!-- Button -->
-							<a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
-								Footerwear
-							</a>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
-					<!-- block1 -->
-					<div class="block1 hov-img-zoom pos-relative m-b-30">
-						<img src="images/banner-04.jpg" alt="IMG-BENNER">
-
-						<div class="block1-wrapbtn w-size2">
-							<!-- Button -->
-							<a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
-								Bags
-							</a>
-						</div>
-					</div>
-
 					<!-- block2 -->
 					<div class="block2 wrap-pic-w pos-relative m-b-30">
 						<img src="images/icons/bg-01.jpg" alt="IMG">
@@ -535,13 +526,13 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> --}}
 			</div>
 		</div>
 	</section>
 
-	<!-- New Product -->
-	<section class="newproduct bgwhite p-t-45 p-b-105">
+	<!-- Featured Product -->
+	{{-- <section class="newproduct bgwhite p-t-45 p-b-105">
 		<div class="container">
 			<div class="sec-title p-b-60">
 				<h3 class="m-text5 t-center">
@@ -828,10 +819,10 @@
 			</div>
 
 		</div>
-	</section>
+	</section> --}}
 
 	<!-- Banner2 -->
-	<section class="banner2 bg5 p-t-55 p-b-55">
+	{{-- <section class="banner2 bg5 p-t-55 p-b-55">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-10 col-md-8 col-lg-6 m-l-r-auto p-t-15 p-b-15">
@@ -919,11 +910,11 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> --}}
 
 
 	<!-- Blog -->
-	<section class="blog bgwhite p-t-94 p-b-65">
+	{{-- <section class="blog bgwhite p-t-94 p-b-65">
 		<div class="container">
 			<div class="sec-title p-b-52">
 				<h3 class="m-text5 t-center">
@@ -1005,10 +996,10 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> --}}
 
 	<!-- Instagram -->
-	<section class="instagram p-t-20">
+	{{-- <section class="instagram p-t-20">
 		<div class="sec-title p-b-52 p-l-15 p-r-15">
 			<h3 class="m-text5 t-center">
 				@ follow us on Instagram
@@ -1126,10 +1117,10 @@
 				</a>
 			</div>
 		</div>
-	</section>
+	</section> --}}
 
 	<!-- Shipping -->
-	<section class="shipping bgwhite p-t-62 p-b-46">
+	{{-- <section class="shipping bgwhite p-t-62 p-b-46">
 		<div class="flex-w p-l-15 p-r-15">
 			<div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 respon1">
 				<h4 class="m-text12 t-center">
@@ -1161,7 +1152,7 @@
 				</span>
 			</div>
 		</div>
-	</section>
+	</section> --}}
 
 
 	<!-- Footer -->
@@ -1174,7 +1165,7 @@
 
 				<div>
 					<p class="s-text7 w-size27">
-						Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879
+						Any questions? Let us know by mail: support@griever.be
 					</p>
 
 					<div class="flex-m p-t-30">
@@ -1193,29 +1184,16 @@
 				</h4>
 
 				<ul>
+					@foreach($categories as $cat)
 					<li class="p-b-9">
+						
 						<a href="#" class="s-text7">
-							Men
+							{{$cat->name}}
 						</a>
 					</li>
+					@endforeach
 
-					<li class="p-b-9">
-						<a href="#" class="s-text7">
-							Women
-						</a>
-					</li>
-
-					<li class="p-b-9">
-						<a href="#" class="s-text7">
-							Dresses
-						</a>
-					</li>
-
-					<li class="p-b-9">
-						<a href="#" class="s-text7">
-							Sunglasses
-						</a>
-					</li>
+					
 				</ul>
 			</div>
 

@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/','Front@index')->name('home');
 
 Route::get('/shop', function(){
 	return view('product');
@@ -23,11 +21,11 @@ Auth::routes();
 
  Route::get('/admin','AdminController@index')->name('admin');
  
-Route::group(['middleware'=>'auth', 'prefix' => 'admin'],function(){
-   Route::resource('users','AdminUserController');
-   Route::resource('categories','CategoryController');
-   Route::resource('products','ProductController');
-
+Route::group(['middleware'=>'auth', 'middleware'=>'isAdmin','prefix' => 'admin'],function(){
+    Route::resource('users','AdminUserController');
+    Route::resource('categories','CategoryController');
+    Route::resource('products','ProductController');
+    Route::resource('genres','GenreController');
     
 });
 

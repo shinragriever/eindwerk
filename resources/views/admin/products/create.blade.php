@@ -1,4 +1,7 @@
 @extends('layouts.admin')
+@section('head')
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+@endsection
 @section('content')
 
             <h1>Create Product</h1>
@@ -42,7 +45,15 @@
                      
                 @csrf
           
+                    <div class="form-group">
+                        <select class="js-select2-genres form-control" name="genres[]" multiple="multiple">
+                            @foreach($genres as $genre)
+                                <option value="{{$genre->id}}">{{$genre->name}}</option>
 
+
+                            @endforeach
+                          </select>
+                    </div>
                 <div>{{ $errors}}</div>
                           
                     </div>
@@ -55,7 +66,12 @@
 
 
 @section('js')
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('.js-select2-genres').select2();
+});
+</script>
 <script>
         Dropzone.autoDiscover = false;
         var myDropzone = new Dropzone("#dropzone",{

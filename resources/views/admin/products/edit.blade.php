@@ -1,4 +1,9 @@
 @extends('layouts.admin')
+
+@section('head')
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+@endsection
+
 @section('content')
 
 <h1>Edit Product: {{$product->name}}</h1>
@@ -31,6 +36,21 @@
                         @endforeach
                     </select>
                 </div>
+                {{-- <div class="form-group">
+                            @foreach($product->genres as $genre)
+                                <span class="label labe-default">{{ $genre->name}}</span>
+                            @endforeach 
+                    </div>--}}
+                            <div class="form-group">
+                                    <select class="js-select2-genres form-control" name="genres[]" multiple="multiple">
+                                        @foreach($genres as $genre)
+                                            <option value="{{$genre->id}}">{{$genre->name}}</option>
+            
+            
+                                        @endforeach
+                                      </select>
+                                </div>
+                    
         </div>
         <div class="col-mod-5">
             <div>
@@ -85,4 +105,14 @@
 </form>
 
 
+@endsection
+
+@section('js')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('.js-select2-genres').select2();
+    $('.js-select2-genres').val({!!$product->genres()->pluck('id') !!}).trigger('change');
+});
+</script>
 @endsection

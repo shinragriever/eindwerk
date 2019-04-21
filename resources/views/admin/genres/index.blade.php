@@ -13,13 +13,13 @@
 		</tr>
 		</thead>
 		<tbody>	
-			@foreach($categories as $category)
+			@foreach($genres as $genre)
 			<tr>
-				<td><a href="{{route('categories.edit',$category->id)}}">{{$category->id}}</a></td>
-				<td>{{$category->name}}</td>
-				<td><a href="{{route('categories.edit',$category->id)}}" class="btn btn-outline-primary btn-sm">Edit</a></td>
+				<td><a href="{{route('genres.edit',$genre->id)}}">{{$genre->id}}</a></td>
+				<td><a href="{{route('genres.show', $genre->id)}}">{{$genre->name}}</a></td>
+				<td><a href="{{route('genres.edit',$genre->id)}}" class="btn btn-outline-primary btn-sm">Edit</a></td>
 				<td>
-					<form action="{{route('categories.destroy', $category->id)}}" method="POST">
+					<form action="{{route('genres.destroy', $genre->id)}}" method="POST">
 						@method('DELETE')
 						<button type="submit" class="btn btn-outline-danger btn-sm">Delete Category</a>
 						@csrf

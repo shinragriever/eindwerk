@@ -16,4 +16,7 @@ class Product extends Model
     public function productImages(){
         return $this->hasMany('App\ProductImage');
     }
+    public function genres() {
+        return $this->belongsToMany('App\Genre');
+     }
 }

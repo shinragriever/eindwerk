@@ -103,20 +103,29 @@
 
   <div id="collapseTables" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
-      <h6 class="collapse-header">Users:</h6>
-      <a class="collapse-item" href="{{route('users.create')}}">Create User</a>
-      <a class="collapse-item" href="{{route('users.index')}}">All Users</a>
-      
-    <div class="collapse-divider"></div>
-      <h6 class="collapse-header">Categories:</h6>
-      <a class="collapse-item" href="{{route('categories.create')}}">Create Category</a>
-      <a class="collapse-item" href="{{route('categories.index')}}">All Categories</a>
-
+        <h6 class="collapse-header">Users:</h6>
+        <a class="collapse-item" href="{{route('users.create')}}">Create User</a>
+        <a class="collapse-item" href="{{route('users.index')}}">All Users</a>
+        
       <div class="collapse-divider"></div>
-      <h6 class="collapse-header">Products:</h6>
-      <a class="collapse-item" href="{{route('products.create')}}">Create Product</a>
-      <a class="collapse-item" href="{{route('products.index')}}">All Products</a>
+        <h6 class="collapse-header">Categories:</h6>
+        <a class="collapse-item" href="{{route('categories.create')}}">Create Category</a>
+        <a class="collapse-item" href="{{route('categories.index')}}">All Categories</a>
+
+        <div class="collapse-divider"></div>
+        <h6 class="collapse-header">Products:</h6>
+        <a class="collapse-item" href="{{route('products.create')}}">Create Product</a>
+        <a class="collapse-item" href="{{route('products.index')}}">All Products</a>
+
+        <div class="collapse-divider"></div>
+      <h6 class="collapse-header">Genres:</h6>
+      <a class="collapse-item" href="{{route('genres.create')}}">Create Genre</a>
+      <a class="collapse-item" href="{{route('genres.index')}}">All Genre</a>
+
     </div>
+
+    
+  
 
 
     

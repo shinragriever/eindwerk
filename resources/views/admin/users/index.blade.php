@@ -43,3 +43,22 @@
 
 
 @endsection
+
+@section('js')
+<script>
+		$(document).ready( function () {
+			$('#datatable').DataTable(
+			{
+			  'iDisplayLength': -1,
+			  "lengthChange": false,  
+			  "info": false,  
+			  "paging": true,
+			  "pageLength": 15,
+			  "columnDefs": [{ 
+			  "targets": [-1,-2], 
+			  "orderable": false,
+			  }],
+			  });
+		} );
+		</script>
+@endsection

@@ -2,11 +2,11 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
 <!-- Sidebar - Brand -->
-<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+<a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('admin')}}">
   <div class="sidebar-brand-icon rotate-n-15">
-    <i class="fas fa-laugh-wink"></i>
+      <i class="fas fa-compact-disc"></i>
   </div>
-  <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+  <div class="sidebar-brand-text mx-3">Griever.be <sup>admin</sup></div>
 </a>
 
 <!-- Divider -->
@@ -104,23 +104,27 @@
   <div id="collapseTables" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
         <h6 class="collapse-header">Users:</h6>
-        <a class="collapse-item" href="{{route('users.create')}}">Create User</a>
-        <a class="collapse-item" href="{{route('users.index')}}">All Users</a>
+          <a class="collapse-item" href="{{route('users.create')}}">Create User</a>
+          <a class="collapse-item" href="{{route('users.index')}}">All Users</a>
+      <div class="collapse-divider"></div>
+        <h6 class="collapse-header">Roles:</h6>
+          <a class="collapse-item" href="{{route('roles.create')}}">Create Role</a>
+          <a class="collapse-item" href="{{route('roles.index')}}">All Roles</a>
         
       <div class="collapse-divider"></div>
         <h6 class="collapse-header">Categories:</h6>
-        <a class="collapse-item" href="{{route('categories.create')}}">Create Category</a>
-        <a class="collapse-item" href="{{route('categories.index')}}">All Categories</a>
+          <a class="collapse-item" href="{{route('categories.create')}}">Create Category</a>
+          <a class="collapse-item" href="{{route('categories.index')}}">All Categories</a>
 
-        <div class="collapse-divider"></div>
+      <div class="collapse-divider"></div>
         <h6 class="collapse-header">Products:</h6>
-        <a class="collapse-item" href="{{route('products.create')}}">Create Product</a>
-        <a class="collapse-item" href="{{route('products.index')}}">All Products</a>
+          <a class="collapse-item" href="{{route('products.create')}}">Create Product</a>
+          <a class="collapse-item" href="{{route('products.index')}}">All Products</a>
 
-        <div class="collapse-divider"></div>
-      <h6 class="collapse-header">Genres:</h6>
-      <a class="collapse-item" href="{{route('genres.create')}}">Create Genre</a>
-      <a class="collapse-item" href="{{route('genres.index')}}">All Genre</a>
+      <div class="collapse-divider"></div>
+        <h6 class="collapse-header">Genres:</h6>
+          <a class="collapse-item" href="{{route('genres.create')}}">Create Genre</a>
+          <a class="collapse-item" href="{{route('genres.index')}}">All Genre</a>
 
     </div>
 

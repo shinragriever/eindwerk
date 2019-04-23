@@ -14,72 +14,65 @@ class RolesController extends Controller
      */
     public function index()
     {
-        //
+        $roles = Role::all();
+        return view('admin.roles.index', compact('roles'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function create()
     {
-        //
+        $role = New Role();
+        return view('admin.roles.create', compact('role'));
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+  
     public function store(Request $request)
     {
-        //
+        Role::create($this->validateRequest());
+
+
+        return redirect()->route('roles.index')->with('success','Role has been created!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Role  $role
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Role $role)
+  
+    public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Role  $role
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(Role $role)
     {
-        //
+        return view('admin.roles.edit', compact('role'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Role  $role
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function update(Request $request, Role $role)
     {
-        //
+        $this->validate($request, array(
+            'name' => "required|min:2|unique:roles,name,$role->id",
+        ));
+        $category->update($request->all());
+
+
+        return redirect()->route('roles.index')->with('success','Role has been updated!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Role  $role
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function destroy(Role $role)
     {
-        //
+        $role->delete();
+        return redirect()->route('roles.index')->with('error','Role has been deleted!');
+
+
     }
+        private function validateRequest(){
+           
+        return request()->validate([
+            'name' => 'required|min:2|unique:roles,name',
+        ]);
+        
+    }
+
 }

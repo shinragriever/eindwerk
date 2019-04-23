@@ -61,7 +61,7 @@ class ProductImagesTableSeeder extends Seeder
                 'created_at' => '2019-04-20 21:28:08',
                 'updated_at' => '2019-04-20 21:28:08',
             ),
-            4=> 
+            4 => 
             array (
                 'id' => 13,
                 'product_id' => 2,
@@ -225,6 +225,61 @@ class ProductImagesTableSeeder extends Seeder
                 'order_column' => 8,
                 'created_at' => '2019-04-20 21:44:25',
                 'updated_at' => '2019-04-20 21:44:25',
+            ),
+            19 => 
+            array (
+                'id' => 28,
+                'product_id' => 5,
+                'file' => '/storage/images/TYflyQEMjphNG1URssSrjIgUTVUQDhF6svZvPS6e.jpeg',
+                'thumbnail' => '/storage/thumbnails/1555854290antiregimen7in.jpg',
+                'featured' => 1,
+                'order_column' => 0,
+                'created_at' => '2019-04-21 13:44:50',
+                'updated_at' => '2019-04-21 13:44:50',
+            ),
+            20 => 
+            array (
+                'id' => 29,
+                'product_id' => 6,
+                'file' => '/storage/images/vjsrNGKnjCc79ouZaTPnEWOJvFebFBsbxgEzmyIe.jpeg',
+                'thumbnail' => '/storage/thumbnails/1555857643blondie1.jpg',
+                'featured' => 1,
+                'order_column' => 0,
+                'created_at' => '2019-04-21 14:40:43',
+                'updated_at' => '2019-04-21 14:40:43',
+            ),
+            21 => 
+            array (
+                'id' => 30,
+                'product_id' => 6,
+                'file' => '/storage/images/IwNPZrcK3NgPED05mTTXu547Z6rDxZAT2OK3mjDH.jpeg',
+                'thumbnail' => '/storage/thumbnails/1555857643blondie2.jpg',
+                'featured' => 0,
+                'order_column' => 1,
+                'created_at' => '2019-04-21 14:40:43',
+                'updated_at' => '2019-04-21 14:40:43',
+            ),
+            22 => 
+            array (
+                'id' => 31,
+                'product_id' => 6,
+                'file' => '/storage/images/zczZfesiHYQklGIVAdf0cwmGGYMg7Ah2XsyTXhzQ.jpeg',
+                'thumbnail' => '/storage/thumbnails/1555857643blondie3.jpg',
+                'featured' => 0,
+                'order_column' => 2,
+                'created_at' => '2019-04-21 14:40:43',
+                'updated_at' => '2019-04-21 14:40:43',
+            ),
+            23 => 
+            array (
+                'id' => 32,
+                'product_id' => 6,
+                'file' => '/storage/images/9QDMNZwybGvSbLnPzOht755mr2GFRDUWjaP3d0vo.jpeg',
+                'thumbnail' => '/storage/thumbnails/1555857643blondie4.jpg',
+                'featured' => 0,
+                'order_column' => 3,
+                'created_at' => '2019-04-21 14:40:43',
+                'updated_at' => '2019-04-21 14:40:43',
             ),
         ));
         

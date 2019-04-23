@@ -21,12 +21,14 @@ Auth::routes();
 
  Route::get('/admin','AdminController@index')->name('admin');
  
-Route::group(['middleware'=>'auth', 'middleware'=>'isAdmin','prefix' => 'admin'],function(){
-    Route::resource('users','AdminUserController');
-    Route::resource('categories','CategoryController');
-    Route::resource('products','ProductController');
-    Route::resource('genres','GenreController');
-    
+Route::group(['middleware'=>'auth','prefix' => 'admin'],function(){
+    Route::group(['middleware'=>'isAdmin'], function(){
+            Route::resource('users','AdminUserController');
+            Route::resource('roles','RolesController');
+            Route::resource('categories','CategoryController');
+            Route::resource('products','ProductController');
+            Route::resource('genres','GenreController');
+    });
 });
 
 Route::get('test', function(){

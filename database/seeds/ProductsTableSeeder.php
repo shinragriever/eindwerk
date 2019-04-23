@@ -28,7 +28,7 @@ Pressing plant uncredited, identified with the matrix.',
                 'price' => 15,
                 'category_id' => 1,
                 'created_at' => '2019-04-20 21:24:05',
-                'updated_at' => '2019-04-20 21:24:05',
+                'updated_at' => '2019-04-21 13:28:06',
             ),
             1 => 
             array (
@@ -54,7 +54,7 @@ B4	Observaciones',
                 'price' => 20,
                 'category_id' => 1,
                 'created_at' => '2019-04-20 21:28:08',
-                'updated_at' => '2019-04-20 21:28:08',
+                'updated_at' => '2019-04-21 13:42:36',
             ),
             2 => 
             array (
@@ -83,7 +83,7 @@ B5	Youre Blessed',
                 'price' => 25,
                 'category_id' => 1,
                 'created_at' => '2019-04-20 21:43:01',
-                'updated_at' => '2019-04-20 21:43:01',
+                'updated_at' => '2019-04-21 15:26:27',
             ),
             3 => 
             array (
@@ -98,7 +98,27 @@ Style: Ballad',
                 'price' => 30,
                 'category_id' => 1,
                 'created_at' => '2019-04-20 21:44:24',
-                'updated_at' => '2019-04-20 21:44:24',
+                'updated_at' => '2019-04-21 15:27:49',
+            ),
+            4 => 
+            array (
+                'id' => 5,
+                'name' => 'Antiguo Régimen ‎– La Formación De La Sombra',
+                'description' => 'Antiguo Régimen ‎– La Formación De La Sombra',
+                'price' => 35,
+                'category_id' => 1,
+                'created_at' => '2019-04-21 13:44:50',
+                'updated_at' => '2019-04-21 13:44:50',
+            ),
+            5 => 
+            array (
+                'id' => 6,
+                'name' => 'Blondie ‎– Heart Of Glass',
+                'description' => 'Blondie ‎– Heart Of Glass',
+                'price' => 5,
+                'category_id' => 1,
+                'created_at' => '2019-04-21 14:40:43',
+                'updated_at' => '2019-04-21 14:40:43',
             ),
         ));
         
